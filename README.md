@@ -1,14 +1,20 @@
 # GET and POST with a Server
 
+In this exercise, you are going to practice using routes alongside `fetch` requests to a server.
+
 ## Get Started
 
-`npx json-server --watch db/db.json --routes db/routes.json --port 3030`
+1. Fork this repository
+2. Clone the forked repository onto your local machines
+3. In the root directory, type `npm install`, which installs dependencies for the project
+4. Run `json-server` - `npx json-server --watch db/db.json --routes db/routes.json --port 3030`(or just `json-server --watch db/db.json --routes db/routes.json --port 3030`, if you already have `json-server` installed)
+5. Finally, type `npm run start`, which starts a development server that runs your website in the browser. That server will reload your website whenever you make any changes to source files
 
 ## Instructions
 
 The instructor will demonstarte the following:
 
-- How to setup and start `json-server`
+- How to setup and start `json-server` and the build process
 - A GET request to the "/tours" endpoint in `/admin/Router.js`
 - A POST request to the "/tours" endpoint in `/admin/tours/CreateTour.js`
 
