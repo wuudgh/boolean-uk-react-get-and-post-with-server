@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# GET and POST with a Server
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Get Started
 
-## Available Scripts
+`npx json-server --watch db/db.json --routes db/routes.json --port 3030`
 
-In the project directory, you can run:
+## Instructions
 
-### `yarn start`
+The instructor will demonstarte the following:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- How to setup and start `json-server`
+- A GET request to the "/tours" endpoint in `/admin/Router.js`
+- A POST request to the "/tours" endpoint in `/admin/tours/CreateTour.js`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+You will implement the above and:
 
-### `yarn test`
+- A GET request to the "/tickets" endpoint in `/admin/tickets/Summary.js`
+- A GET request to the "/tours" endpoint in `/user/components/ToursList`
+- A POST request to the "/tickets" endpoint in `/user/tickets/BookTicket.js`
+- A GET request to the "/tickets" endpoint in `/user/tickets/ViewTickets.js`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Further Work
 
-### `yarn build`
+### Addresses
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Add an `address` resource to `db.json` that works with `tours`
+- Add a form to the `/admin/tours/CreateTour.js` for the address
+- Display the address on the lists
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Attractions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Add another type of attraction ie. `shows` for Theatre Shows
+- Add another route to `/admin/Router.js` for a `CreateShow` form
+- Allow users to book tickets to shows
