@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Route, Routes } from "react-router"
 import { Link } from "react-router-dom"
 import CreateTourPage from "./tours/CreateTour"
@@ -9,12 +9,6 @@ function AdminRouter() {
   const [tours, setTours] = useState([])
 
   console.log({ tours })
-
-  useEffect(() => {
-    fetch("http://localhost:3030/tours")
-      .then(res => res.json())
-      .then(data => setTours(data))
-  }, [])
 
   return (
     <>

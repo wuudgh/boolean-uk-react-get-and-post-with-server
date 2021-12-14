@@ -3,12 +3,6 @@ import { useEffect, useState } from "react"
 function ViewTickets() {
   const [tickets, setTickets] = useState([])
 
-  useEffect(() => {
-    fetch("http://localhost:3030/tickets")
-      .then(res => res.json())
-      .then(data => setTickets(data))
-  }, [])
-
   return (
     <ul>
       {tickets.map((ticket, index) => {
