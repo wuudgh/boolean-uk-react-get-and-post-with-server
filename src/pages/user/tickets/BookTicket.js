@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router"
 import { Link } from "react-router-dom"
 
 function BookTicket() {
+  const [tour, setTour] = useState(null)
   const [ticketToCreate, setTicketToCreate] = useState({
     tourId: null,
     email: "",
@@ -19,7 +20,7 @@ function BookTicket() {
     if (location.state) {
       const { tour } = location.state
 
-      setTicketToCreate({ ...ticketToCreate, tourId: tour.id })
+      setTour(tour)
     }
   }, [location])
 
@@ -31,7 +32,7 @@ function BookTicket() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(ticketToCreate),
+      body: JSON.stringify({ ...ticketToCreate, tourId: tour.id }),
     }
 
     fetch("http://localhost:3030/tickets", fetchOptions)
