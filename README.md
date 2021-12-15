@@ -21,9 +21,8 @@ The instructor will demonstarte the following:
 You will implement the above and:
 
 - A GET request to the "/tickets" endpoint in `/admin/tickets/Summary.js`
-- A GET request to the "/tours" endpoint in `/user/components/ToursList`
-- A POST request to the "/tickets" endpoint in `/user/tickets/BookTicket.js`
 - A GET request to the "/tickets" endpoint in `/user/tickets/ViewTickets.js`
+- A POST request to the "/tickets" endpoint in `/user/tickets/BookTicket.js`
 
 ## Further Work
 
