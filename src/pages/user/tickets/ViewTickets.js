@@ -1,12 +1,21 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 function ViewTickets() {
-  const [tickets, setTickets] = useState([])
+  const [tickets, setTickets] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3030/tickets")
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log("my tickets", data);
+        setTickets(data);
+      });
+  }, []);
 
   return (
     <ul>
       {tickets.map((ticket, index) => {
-        const { email, quantity, date, tour } = ticket
+        const { email, quantity, date, tour } = ticket;
 
         return (
           <li key={index}>
@@ -15,10 +24,10 @@ function ViewTickets() {
             <p>Quantity: {quantity}</p>
             <p>Date: {date}</p>
           </li>
-        )
+        );
       })}
     </ul>
-  )
+  );
 }
 
-export default ViewTickets
+export default ViewTickets;

@@ -1,26 +1,46 @@
-import { useState } from "react"
+import { useEffect, useState } from "react";
 
 function CreateTourPage(props) {
-  const { tours, setTours } = props
+  const { tours, setTours } = props;
 
   const [tourToCreate, setTourToCreate] = useState({
     name: "",
     price: 0,
-  })
-
-  console.log({ tourToCreate })
+  });
+  const [submitted, setSubmitted] = useState(false);
+  useEffect(() => {
+    if (submitted) {
+      console.log("tour", tourToCreate);
+      const fetchOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(tourToCreate),
+      };
+      fetch("http://localhost:3030/tours", fetchOptions)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("my", data);
+          setTours([...tours, data]);
+        })
+        .catch((error) => console.error());
+    }
+  }, [submitted]);
 
   function handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
+    setSubmitted(true);
 
     // Redirect to "/" with navigate and useNavigate
   }
 
   function handleChange(event) {
-    const name = event.target.name
-    const value = event.target.value
+    const name = event.target.name;
+    const value = event.target.value;
 
-    setTourToCreate({ ...tourToCreate, [name]: value })
+    console.log({ ...tourToCreate, [name]: value });
+    setTourToCreate({ ...tourToCreate, [name]: value });
   }
 
   return (
@@ -32,7 +52,7 @@ function CreateTourPage(props) {
         id="name"
         name="name"
         onChange={handleChange}
-        value={tourToCreate.name}
+        // value={tourToCreate.name}
       />
       <label htmlFor="price">price</label>
       <input
@@ -40,11 +60,11 @@ function CreateTourPage(props) {
         id="price"
         name="price"
         onChange={handleChange}
-        value={tourToCreate.price}
+        //value={tourToCreate.price}
       />
       <button type="submit">Create Tour</button>
     </form>
-  )
+  );
 }
 
-export default CreateTourPage
+export default CreateTourPage;

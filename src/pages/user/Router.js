@@ -1,8 +1,9 @@
-import { Route, Routes } from "react-router"
-import { Link } from "react-router-dom"
-import HomePage from "./Home"
-import BookTicket from "./tickets/BookTicket"
-import ViewTickets from "./tickets/ViewTickets"
+import { Route, Routes } from "react-router";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react/cjs/react.development";
+import HomePage from "./Home";
+import BookTicket from "./tickets/BookTicket";
+import ViewTickets from "./tickets/ViewTickets";
 
 function UserRouter() {
   return (
@@ -28,7 +29,7 @@ function UserRouter() {
         <Route path="/tickets" element={<ViewTickets />} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default UserRouter
+export default UserRouter;

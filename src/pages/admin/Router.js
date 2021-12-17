@@ -1,14 +1,25 @@
-import { useState } from "react"
-import { Route, Routes } from "react-router"
-import { Link } from "react-router-dom"
-import CreateTourPage from "./tours/CreateTour"
-import Dashboard from "./Dashboard"
-import TicketsSummary from "./tickets/Summary"
+import { useState, useEffect } from "react";
+import { Route, Routes } from "react-router";
+import { Link } from "react-router-dom";
+
+import CreateTourPage from "./tours/CreateTour";
+import Dashboard from "./Dashboard";
+import TicketsSummary from "./tickets/Summary";
 
 function AdminRouter() {
-  const [tours, setTours] = useState([])
+  const [tours, setTours] = useState([]);
 
-  console.log({ tours })
+  useEffect(() => {
+    fetch("http://localhost:3030/tours")
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log({ data });
+        setTours(data);
+      })
+      .catch((error) => console.error("AdminRouter error", error));
+  }, []);
+
+  console.log({ tours });
 
   return (
     <>
@@ -39,7 +50,7 @@ function AdminRouter() {
         <Route path="tickets/summary" element={<TicketsSummary />} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default AdminRouter
+export default AdminRouter;

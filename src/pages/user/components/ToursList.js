@@ -1,15 +1,21 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function ToursList() {
-  const [tours, setTours] = useState([])
-
-  console.log({ tours })
-
+  const [tours, setTours] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3030/tours")
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log({ data });
+        setTours(data);
+      })
+      .catch((error) => console.error("UserRouter error", error));
+  }, []);
   return (
     <ul>
       {tours.map((tour, index) => {
-        const { name, price } = tour
+        const { name, price } = tour;
 
         return (
           <li key={index}>
@@ -19,10 +25,10 @@ function ToursList() {
               Book Tour
             </Link>
           </li>
-        )
+        );
       })}
     </ul>
-  )
+  );
 }
 
-export default ToursList
+export default ToursList;
